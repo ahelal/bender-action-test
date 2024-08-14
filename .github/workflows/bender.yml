@@ -34,6 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project
+          exit 1
 #-------------
   ai:
     runs-on: ubuntu-latest
