@@ -10,4 +10,5 @@ for env in os.environ:
     if env.startswith("ANNOTATION_"):
         print("")
         print(f"::notice::{os.environ[env]}")
-        print("")
+
+print("Finished")
