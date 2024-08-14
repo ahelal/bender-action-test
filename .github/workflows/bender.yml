@@ -54,8 +54,8 @@ jobs:
         uses: ahelal/bender-action@main
         with:
           mode: 'job'
-          gh-token: ${{ secrets.GH_TOKEB }} # if needed
+          #gh-token: ${{ secrets.GH_TOKEB }} # if needed
           az-openai-endpoint: ${{vars.OA_ENDPOINT}}
           az-openai-deployment: ${{secrets.OA_DEPLOYMENT}}
           az-openai-key: ${{secrets.OA_KEY}}
-          dir-context: ${{ env.dir_context }}
+          #dir-context: ${{ env.dir_context }}
