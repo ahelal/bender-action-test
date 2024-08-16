@@ -1,5 +1,5 @@
 import random
-import json
+from .util.py import save_game, load_game
 
 # Initialize the game board
 ROWS = 6
@@ -54,23 +54,6 @@ def computer_move(board, disc):
     valid_moves = [col for col in range(COLUMNS) if is_valid_move(board, col)]
     col = random.choice(valid_moves)
     make_move(board, col, disc)
-
-def save_game(board, turn, mode, filename):
-    game_state = {
-        "board": board,
-        "turn": turn,
-        "mode": mode
-    }
-    with open(filename, 'w') as file:
-        json.dump(game_state, file)
-    print(f"Game saved successfully as {filename}.")
-
-def load_game(filename):
-    global board
-    with open(filename, 'r') as file:
-        game_state = json.load(file)
-    board = game_state["board"]
-    return game_state["turn"], game_state["mode"]
 
 def play_game():
     global board

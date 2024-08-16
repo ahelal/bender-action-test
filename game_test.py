@@ -1,5 +1,3 @@
-import random
-import json
 from game import ROWS, COLUMNS, check_winner, is_draw, print_board
 
 def test_play_game():
