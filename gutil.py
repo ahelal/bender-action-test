@@ -15,4 +15,5 @@ def load_game(filename):
     with open(filename, 'r') as file:
         game_state = json.load(file)
     board = game_state["board"]
+    print(f"Game loaded successfully as {filename}.")
     return game_state["turn"], game_state["mode"]
