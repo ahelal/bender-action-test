@@ -1,5 +1,5 @@
 import random
-from .util.py import save_game, load_game
+from gutil import save_game, load_game
 
 # Initialize the game board
 ROWS = 6
