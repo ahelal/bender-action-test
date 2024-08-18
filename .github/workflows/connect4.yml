@@ -1,0 +1,33 @@
+name: PR Review Connect4
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  bender :
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get dir context
+        id: getdir
+        run:
+          echo "dir_context=$(find . -path ./.git -prune -o -print | base64 | tr
+          '\n' ' ')" >> $GITHUB_ENV
+
+      - name: Run Bender
+        uses: ahelal/bender-action@0.0.1
+        with:
+          mode: 'pr'
+          gh-token: ${{ secrets.GH_TOKEN }}
+          az-openai-endpoint: ${{vars.OA_ENDPOINT}}
+          az-openai-deployment: ${{secrets.OA_DEPLOYMENT}}
+          az-openai-key: ${{secrets.OA_KEY}}
+          dir-context: ${{ env.dir_context }}
+          include: '*.py'
