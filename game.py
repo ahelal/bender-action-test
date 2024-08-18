@@ -1,15 +1,11 @@
 import random
-from gutil import save_game, load_game
+from gutil import save_game, load_game, print_board
 
 # Initialize the game board
 ROWS = 6
 COLUMNS = 7
 board = [[' ' for _ in range(COLUMNS)] for _ in range(ROWS)]
 
-def print_board(board):
-    for row in board:
-        print('|'.join(row))
-        print('-' * (2 * COLUMNS - 1))
 
 def is_valid_move(board, col):
     return board[0][col] == ' '
@@ -66,7 +62,7 @@ def play_game():
         turn = 0
 
     while True:
-        print_board(board)
+        print_board(board, COLUMNS)
         if mode == '2' and turn % 2 == 1:
             print("Computer's turn")
             computer_move(board, 'O')
@@ -84,11 +80,11 @@ def play_game():
                 continue
 
         if check_winner(board, 'X' if turn % 2 == 0 else 'O'):
-            print_board(board)
+            print_board(board, COLUMNS)
             print(f"Player {turn % 2 + 1} wins!")
             break
         if is_draw(board):
-            print_board(board)
+            print_board(board, COLUMNS)
             print("The game is a draw!")
             break
         turn += 1
