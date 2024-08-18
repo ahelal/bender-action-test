@@ -38,3 +38,4 @@ jobs:
             az-openai-deployment: ${{secrets.OA_DEPLOYMENT}}
             az-openai-key: ${{secrets.OA_KEY}}
             dir-context: ${{ env.dir_context }}
+            include: "*.sh"
