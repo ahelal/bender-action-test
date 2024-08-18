@@ -6,7 +6,6 @@ ROWS = 6
 COLUMNS = 7
 board = [[' ' for _ in range(COLUMNS)] for _ in range(ROWS)]
 
-
 def is_valid_move(board, col):
     return board[0][col] == ' '
 

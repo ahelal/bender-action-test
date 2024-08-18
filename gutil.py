@@ -2,9 +2,8 @@ import json
 
 def print_board(board, columns):
     for row in board:
-        print('|'.join(row))
-        print('-' * (2 * columns - 1))
-
+        print(' | '.join(row))
+        print('-' * (4 * columns - 1))
 
 def save_game(board, turn, mode, filename):
     game_state = {
