@@ -22,10 +22,10 @@ jobs:
           '\n' ' ')" >> $GITHUB_ENV
 
       - name: Run Bender
-        uses: ahelal/bender-action@feature/newcomment
+        uses: ahelal/bender-action@0.0.1
         with:
           mode: 'pr'
-          gh-token: ${{ secrets.GH_TOKEN }} # if needed
+          gh-token: ${{ secrets.GH_TOKEN }}
           az-openai-endpoint: ${{vars.OA_ENDPOINT}}
           az-openai-deployment: ${{secrets.OA_DEPLOYMENT}}
           az-openai-key: ${{secrets.OA_KEY}}
